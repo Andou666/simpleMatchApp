@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 確認バージョン
+Ruby 2.6
+Rails 6.0
 
-Things you may want to cover:
+## 説明
 
-* Ruby version
+某サイトの「The Essential Web Developer Course FREE」を上記バージョンにて作成したものとなります。最低限の動作確認のみしている状態のため細かい部分でエラーが出ることがありますのでご利用の際はご注意ください。
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+### あとでやるかもしれないもの
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Webpacker移行
+- レイアウト修正
+- テスト用の seed.rb 作成
+- 細かい変更もろもろ
