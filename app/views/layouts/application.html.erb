@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>DevMatch</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://js.stripe.com/v2/", type: 'text/javascript' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+
+    <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+  </head>
+
+  <body>
+<nav class="navbar navbar-expand-lg  navbar-inverse bg-invers">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <i class="fas fa-users"></i> DevMatch
+  <% end %>
+
+  <div class="nav navbar-nav navbar-right">
+  <% if user_signed_in? %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
+  <% else %>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn" %>
+    <% if false %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default navbar-btn" %>
+    <% end %>
+  <% end %>
+  </div>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars" style="color:white"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto"></div>
+    <div class="navbar-nav">
+    <% if user_signed_in? %>
+      <%= link_to "Commuinity", users_path, class: "nav-item nav-link" %>
+      <%= link_to "My Account", edit_user_registration_path, class: "nav-item nav-link" %>
+    <% end %>
+      <%= link_to "About", about_path, class: "nav-item nav-link" %>
+      <%= link_to "Contact Us", new_contact_path, class: "nav-item nav-link" %>
+    </div>
+  </div>
+</nav>
+
+  
+  
+ 
+    <%= yield %>
+  </body>
+</html>
